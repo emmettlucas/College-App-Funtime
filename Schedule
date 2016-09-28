@@ -1,0 +1,22 @@
+Now to Tuesday, October 4th
+Get comfortable with Android Studio. (Read through every applicable module on the user guide and experiment along with it in the studio) Incorporate LibGDX and get comfortable with it. Learn about GitHub and set up a GitHub Repository for the project.
+Bonus: Create a basic program utilizing LibGDX
+
+October 4th to October 18th
+Get an object on the screen of my phone which the user can interact with. Take pictures of myself for use as the player (outside of class). Use one and develop controls. 
+Bonus: Be able to move left and right on the ground.
+
+October 18th to November 1st
+Ability for player to jump. Differentiate levels, begin generating content for levels and placing it (or at least place holders) in each level. Be able to move to next level. Collision detection should be up and running.
+Bonus: Start working on title screen or pause button
+
+November 1st to November 15th
+Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
+Bonus: Start working on motion of content, transitions, or other aesthetic elements.
+
+November 15th to November 24th (Thanksgiving)
+Title screen complete, able to restart whole game or individual levels. Settings button, changes settings. Mostly complete motion of content, transitions, and other aesthetic elements.
+Bonus: Make everything look better and run more smoothly
+
+By Christmas
+Be done with at least the MVP, and polish, stylize, improve and bug fix as much as possible. 
