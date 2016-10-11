@@ -1,16 +1,16 @@
-Now to Tuesday, October 4th
+Goal by Wednesday, October 12th
 Get comfortable with Android Studio. (Read through applicable modules on the user guide and experiment along with it in the studio) Incorporate LibGDX and get comfortable with it. Learn about GitHub and set up a GitHub Repository for the project.
-Bonus: Create a basic program utilizing LibGDX.
+Use the "a simple game" and "extending the simple game" tutorials on the LibGDX wiki to create a basic program utilizing LibGDX and in doing so build skills which I can directly apply to my end product.
 
-October 4th to October 18th
-Get an object on the screen of my phone which the user can interact with. Take pictures of myself for use as the player (outside of class). Use one and develop controls. 
-Bonus: Be able to move left and right on the ground.
+October 12th to October 26th
+Get an object on the screen of my phone which the user can interact with. Take pictures of myself for use as the player (outside of class). Use one and develop controls. Be able to move left and right on the ground. Take first steps toward collision detection.
+Bonus: Ability for player to jump
 
-October 18th to November 1st
-Ability for player to jump. Differentiate levels, begin generating content for levels and placing it (or at least place holders) in each level. Be able to move to next level. Collision detection should be up and running.
+October 26th to November 9th
+Ability for player to jump should be working. Differentiate levels, begin generating content for levels and placing it (or at least place holders) in each level. Be able to move to next level. Collision detection should be up and running.
 Bonus: Start working on title screen or pause button
 
-November 1st to November 15th
+November 9th to November 23rd
 Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
 Bonus: Start working on motion of content, transitions, or other aesthetic elements.
 
