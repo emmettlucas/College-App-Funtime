@@ -3,7 +3,7 @@ Get comfortable with Android Studio. (Read through applicable modules on the use
 Use the "a simple game" and "extending the simple game" tutorials on the LibGDX wiki to create a basic program utilizing LibGDX and in doing so build skills which I can directly apply to my end product.
 
 October 12th to October 26th
-Get an object on the screen of my phone which the user can interact with. Take pictures of myself for use as the player (outside of class). Use one and develop controls. Be able to move left and right on the ground. Take first steps toward collision detection.
+Get an object on the screen of my phone which the user can interact with (for example, move left and right). Take pictures of myself for use as the player (outside of class). Use one and develop controls. Be able to move left and right on the ground. Take first steps toward collision detection.
 Bonus: Ability for player to jump
 
 October 26th to November 9th
