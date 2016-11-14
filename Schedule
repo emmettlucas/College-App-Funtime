@@ -1,20 +1,22 @@
-Goal by Wednesday, October 12th
+Goal by Wednesday, October 12th:
 Get comfortable with Android Studio. (Read through applicable modules on the user guide and experiment along with it in the studio) Incorporate LibGDX and get comfortable with it. Learn about GitHub and set up a GitHub Repository for the project.
 Use the "a simple game" and "extending the simple game" tutorials on the LibGDX wiki to create a basic program utilizing LibGDX and in doing so build skills which I can directly apply to my end product.
 
-October 12th to October 26th
+October 12th to October 26th:
 Find a placeholder image for the player and get it on the screen of my phone. Take first steps toward figuring out collision detection using Box2D.
 Bonus: Ability for player to move left and right
 
-October 26th to November 9th
-Ability for player to jump should be working, as well as moving left and right. Begin generating content for levels and placing it (or at least place holders) in each level. Be able to move to next level. Collision detection should be up and running.
-Bonus: Start working on title screen or pause button
+October 26th to November 9th:
+Fix problems, get the image of the player on the screen again, as well as on a simulated desktop version of the program. Set up sprite so it will eventually be able to move.
+Bonus: Ability for player to move left and right and possibly jump
 
-November 9th to November 23rd
+November 9th to November 23rd:
+Ability for player to jump should be working, as well as moving left and right. Collision detection should be getting close up and running.
+Bonus: Begin generating content for levels and placing it (or at least place holders) in the level.
+
+After Thanksgiving:
 Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
 Bonus: Start working on motion of content, transitions, or other aesthetic elements.
-
-November 15th to November 24th (Thanksgiving)
 Title screen complete, able to restart whole game or individual levels. Settings button, changes settings. Mostly complete motion of content, transitions, and other aesthetic elements.
 Bonus: Make everything look better and run more smoothly
 
