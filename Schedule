@@ -14,7 +14,7 @@ November 9th to November 23rd:
 Ability for player to jump should be working, as well as moving left and right. Collision detection should be getting close up and running.
 Bonus: Begin generating content for levels and placing it (or at least place holders) in the level.
 
-After Thanksgiving:
+After Thanksgiving but before Christmas (refine + break into weeks):
 Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
 Bonus: Start working on motion of content, transitions, or other aesthetic elements.
 Title screen complete, able to restart whole game or individual levels. Settings button, changes settings. Mostly complete motion of content, transitions, and other aesthetic elements.
