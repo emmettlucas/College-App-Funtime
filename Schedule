@@ -16,8 +16,8 @@ Start to integrate Box2D
 Bonus: Begin generating content for levels and placing it (or at least place holders) in the level.
 
 November 30th to December 14th
-Box2d fully integrated and there should be at least one functional and interactive world/level for the player to move around in.
-Be done with the MVP
+Box2d fully integrated (my basic physics replaced with Box2D - player can jump around + collision detection is improved)
+and there should be at least one functional and interactive world/level for the player to move around in.
 
 After Christmas:
 Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
