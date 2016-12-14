@@ -12,11 +12,16 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.objects.Brick;
 import com.mygdx.game.objects.GameObject;
 
 import java.util.ArrayList;
+
+import static com.badlogic.gdx.math.Interpolation.circle;
 
 public class CollegeApp extends ApplicationAdapter {
 	private OrthographicCamera camera;
@@ -43,6 +48,18 @@ public class CollegeApp extends ApplicationAdapter {
 
 		Body body = world.createBody(bodyDef);
 
+		CircleShape circle = new CircleShape();
+		circle.setRadius(6f);
+
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = circle;
+		fixtureDef.density = 0.5f;
+		fixtureDef.friction = 0.4f;
+		fixtureDef.restitution = 0.6f;
+
+		Fixture fixture = body.createFixture(fixtureDef);
+
+		/*
 		//creates an new instance of each brick in world
 		list.add(new Brick(0,0));
 		list.add(new Brick(64,0));
@@ -51,7 +68,7 @@ public class CollegeApp extends ApplicationAdapter {
 		list.add(new Brick(256,0));
 		list.add(new Brick(0,64));
 		list.add(new Brick(64,64));
-		list.add(new Brick(128,64));
+		list.add(new Brick(128,64));/*
 	}
 
 	@Override
@@ -99,5 +116,6 @@ public class CollegeApp extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
+		//circle.dispose();
 	}
 }

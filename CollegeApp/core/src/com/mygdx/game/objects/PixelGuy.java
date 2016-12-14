@@ -24,7 +24,7 @@ public class PixelGuy extends com.mygdx.game.objects.GameObject {
 
         sprite = new Sprite(img, 0, 0, 58, 161);
         this.setPosition(100, 50);
-        velocityY = 0;
+        velocityY = 0;//
     }
 
     public int hits(Rectangle r){
