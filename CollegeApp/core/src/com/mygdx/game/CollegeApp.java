@@ -39,7 +39,7 @@ public class CollegeApp extends ApplicationAdapter {
 
 		camera = new OrthographicCamera();//Sets up camera and view to eventually be rendered
 		camera.setToOrtho(false, 800, 480);
-		batch = new SpriteBatch();
+		//batch = new SpriteBatch();
 
 		player1 = new com.mygdx.game.objects.PixelGuy();//Creates player and positions him
 		player1.setPosition(200, 100);
@@ -66,7 +66,7 @@ public class CollegeApp extends ApplicationAdapter {
 		// Set its world position
 		groundBodyDef.position.set(new Vector2(0, 10));
 
-		// Create a body from the defintion and add it to the world
+		// Create a body from the definition and add it to the world
 		Body groundBody = world.createBody(groundBodyDef);
 
 		// Create a polygon shape
@@ -118,8 +118,8 @@ public class CollegeApp extends ApplicationAdapter {
 		}
 */
 
-		circle.applyForce(1.0f, 0.0f, pos.x, pos.y, true);
-		circle.applyForceToCenter(1.0f, 0.0f, true);
+		body.applyForce(1.0f, 0.0f, body.getPosition().x, body.getPosition().y, true);
+		body.applyForceToCenter(1.0f, 0.0f, true);
 
 
 		debugRenderer.render(world, camera.combined);
