@@ -20,7 +20,7 @@ public class Brick extends GameObject {
         texture = new Texture("brick.png");
         sprite = new Sprite(texture, 0, 0, 64, 64);
         sprite.setPosition(x,y);
-    }
+    }//
 
     @Override
     public int hits(Rectangle r) {
