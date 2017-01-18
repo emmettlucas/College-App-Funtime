@@ -15,6 +15,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.objects.Brick;
 import com.mygdx.game.objects.GameObject;
@@ -28,6 +29,7 @@ public class CollegeApp extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private com.mygdx.game.objects.PixelGuy player1;
 	private ArrayList<GameObject> list = new ArrayList<GameObject>();
+	private float accumulator = 0;
 	World world = new World(new Vector2(0, -10), true);
 	Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 	
@@ -58,6 +60,24 @@ public class CollegeApp extends ApplicationAdapter {
 		fixtureDef.restitution = 0.6f;
 
 		Fixture fixture = body.createFixture(fixtureDef);
+
+		// Create our brick definition
+		BodyDef groundBodyDef = new BodyDef();
+		// Set its world position
+		groundBodyDef.position.set(new Vector2(0, 10));
+
+		// Create a body from the defintion and add it to the world
+		Body groundBody = world.createBody(groundBodyDef);
+
+		// Create a polygon shape
+		PolygonShape groundBox = new PolygonShape();
+		// Set the polygon shape as a box twice the size of our view port and 20 high
+
+		groundBox.setAsBox(camera.viewportWidth, 10.0f);
+		// Create a fixture from our polygon shape and add it to ground body
+		groundBody.createFixture(groundBox, 0.0f);
+		// Clean up
+		groundBox.dispose();
 
 		/*
 		//creates an new instance of each brick in world
@@ -97,6 +117,11 @@ public class CollegeApp extends ApplicationAdapter {
 			}
 		}
 */
+
+		circle.applyForce(1.0f, 0.0f, pos.x, pos.y, true);
+		circle.applyForceToCenter(1.0f, 0.0f, true);
+
+
 		debugRenderer.render(world, camera.combined);
 
 		//Controls
@@ -112,6 +137,17 @@ public class CollegeApp extends ApplicationAdapter {
 
 		world.step(1/45f, 6, 2);
 	}
+
+//	private void doPhysicsStep(float deltaTime) {
+//		// fixed time step
+//		// max frame time to avoid spiral of death (on slow devices)
+//		float frameTime = Math.min(deltaTime, 0.25f);
+//		accumulator += frameTime;
+//		while (accumulator >= Constants.TIME_STEP) {
+//			WorldManager.world.step(Constants.TIME_STEP, Constants.VELOCITY_ITERATIONS, Constants.POSITION_ITERATIONS);
+//			accumulator -= Constants.TIME_STEP;
+//		}
+//	}
 	
 	@Override
 	public void dispose () {
