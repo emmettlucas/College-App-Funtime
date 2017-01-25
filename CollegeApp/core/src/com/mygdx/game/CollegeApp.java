@@ -5,18 +5,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Box2D;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.objects.Brick;
 import com.mygdx.game.objects.GameObject;
 
@@ -28,10 +21,15 @@ public class CollegeApp extends ApplicationAdapter {
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	private com.mygdx.game.objects.PixelGuy player1;
-	private ArrayList<GameObject> list = new ArrayList<GameObject>();
-	private float accumulator = 0;
-	World world = new World(new Vector2(0, -10), true);
-	Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
+	//private ArrayList<GameObject> list = new ArrayList<GameObject>();
+	//private float accumulator = 0;
+	World world;
+	//Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
+	Sprite sprite;
+	Body body;
+	Vector2 vel;
+	Vector2 pos;
+	final float MAX_VELOCITY = 5000f;
 	
 	@Override
 	public void create () {
@@ -39,25 +37,28 @@ public class CollegeApp extends ApplicationAdapter {
 
 		camera = new OrthographicCamera();//Sets up camera and view to eventually be rendered
 		camera.setToOrtho(false, 800, 480);
-		//batch = new SpriteBatch();
+		batch = new SpriteBatch();
 
 		player1 = new com.mygdx.game.objects.PixelGuy();//Creates player and positions him
 		player1.setPosition(200, 100);
 
+		world = new World(new Vector2(0, -30), true);
+
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
-		bodyDef.position.set(100, 300);
+		bodyDef.position.set(player1.getX(), player1.getY());
 
-		Body body = world.createBody(bodyDef);
+		body = world.createBody(bodyDef);
 
-		CircleShape circle = new CircleShape();
-		circle.setRadius(6f);
+		PolygonShape shape = new PolygonShape();
+		//shape.setAsBox(sprite.getWidth()/2, sprite.getHeight()/2);
+		shape.setAsBox(2, 2);
 
 		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f;
-		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 0.6f;
+		fixtureDef.shape = shape;
+		fixtureDef.density = 1f;
+		fixtureDef.friction = 1f;
+		fixtureDef.restitution = 0.3f;
 
 		Fixture fixture = body.createFixture(fixtureDef);
 
@@ -118,25 +119,63 @@ public class CollegeApp extends ApplicationAdapter {
 		}
 */
 
-		body.applyForce(1.0f, 0.0f, body.getPosition().x, body.getPosition().y, true);
-		body.applyForceToCenter(1.0f, 0.0f, true);
+//		body.applyForce(1.0f, 0.0f, body.getPosition().x, body.getPosition().y, true);
+//		body.applyForceToCenter(1.0f, 0.0f, true);
 
 
-		debugRenderer.render(world, camera.combined);
 
-		//Controls
-		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){//Left arrow input, moves left
-			player1.moveLeft(Gdx.graphics.getDeltaTime());
-		}
-		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){//Right arrow input, moves right
-			player1.moveRight(Gdx.graphics.getDeltaTime());
-		}
-		if(Gdx.input.isKeyPressed(Input.Keys.UP)){//Up arrow input, jumps
-			player1.jump();
-		}
+//		//Controls
+//		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){//Left arrow input, moves left
+//			player1.moveLeft(Gdx.graphics.getDeltaTime());
+//		}
+//		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){//Right arrow input, moves right
+//			player1.moveRight(Gdx.graphics.getDeltaTime());
+//		}
+//		if(Gdx.input.isKeyPressed(Input.Keys.UP)){//Up arrow input, jumps
+//			player1.jump();
+//		}
 
-		world.step(1/45f, 6, 2);
+//		while (true){
+//			body.applyForceToCenter(0.0f, 1.0f, true);
+//		}
 	}
+
+	@Override
+	public void render() {
+
+		//world.step(Gdx.graphics.getDeltaTime(), 6, 2);
+		world.step(1/45f, 6, 4);
+
+
+		vel = body.getLinearVelocity();
+		pos = body.getPosition();
+
+		// apply left impulse, but only if max velocity is not reached yet
+		if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && vel.x > -MAX_VELOCITY) {
+			body.applyLinearImpulse(-20f, 0, pos.x, pos.y, true);
+		}
+
+		// apply right impulse, but only if max velocity is not reached yet
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && vel.x < MAX_VELOCITY) {
+			body.applyLinearImpulse(20f, 0, pos.x, pos.y, true);
+		}
+
+		if (Gdx.input.isKeyPressed(Input.Keys.UP) && vel.x < MAX_VELOCITY) {
+			body.applyLinearImpulse(0, 100f, pos.x, pos.y, true);
+		}//ASDOJF
+
+		player1.setPosition(body.getPosition().x, body.getPosition().y);
+
+		Gdx.gl.glClearColor(0, 1, 0, 1);//Colors background
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.setProjectionMatrix(camera.combined);
+		batch.begin();
+		player1.draw(batch);
+		//batch.draw(player1, player1.getX(), player1.getY());
+		batch.end();
+	}
+
+
 
 //	private void doPhysicsStep(float deltaTime) {
 //		// fixed time step
@@ -152,6 +191,8 @@ public class CollegeApp extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
+		//shape.dispose();
+		world.dispose();
 		//circle.dispose();
 	}
 }

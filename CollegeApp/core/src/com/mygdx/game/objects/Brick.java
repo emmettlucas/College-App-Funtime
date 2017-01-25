@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
- * Created by emmet on 11/18/2016.
+ * Created by emmett on 11/18/2016.
  */
 
 public class Brick extends GameObject {

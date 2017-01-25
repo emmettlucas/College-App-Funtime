@@ -14,6 +14,8 @@ public class PixelGuy extends com.mygdx.game.objects.GameObject {
     Sprite sprite;
     Texture img;
     int action;
+    float x = 100;
+    float y = 50;
     float velocityY;
 
     //constructor
@@ -23,8 +25,16 @@ public class PixelGuy extends com.mygdx.game.objects.GameObject {
         img = new Texture("PixelGuy.jpg");
 
         sprite = new Sprite(img, 0, 0, 58, 161);
-        this.setPosition(100, 50);
+        this.setPosition(x, y);
         velocityY = 0;//
+    }
+
+    public float getX(){
+        return x;
+    }
+
+    public float getY(){
+        return y;
     }
 
     public int hits(Rectangle r){
@@ -47,9 +57,9 @@ public class PixelGuy extends com.mygdx.game.objects.GameObject {
         sprite.setPosition(bottom.x, bottom.y);
     }
 
-    public void setPosition(float x, float y){
-        bottom.x = x;
-        bottom.y = y;
+    public void setPosition(float x1, float y1){
+        x = x1;
+        y = y1;
         sprite.setPosition(x,y);
     }
 
