@@ -15,11 +15,21 @@ Ability for player to jump should be working, as well as moving left and right. 
 Start to integrate Box2D
 Bonus: Begin generating content for levels and placing it (or at least place holders) in the level.
 
-November 30th to December 14th
-Box2d fully integrated (my basic physics replaced with Box2D - player can jump around + collision detection is improved)
-and there should be at least one functional and interactive world/level for the player to move around in.
+November 30th to December 14th:
+Continue to integrate Box2d (my basic physics replaced with Box2D - player can jump around + collision detection is improved)
 
-After Christmas:
+January 3rd to January 11th:
+Box2d fully integrated into the program (my basic physics replaced with Box2D - player can jump/move around + collision detection improved)
+
+January 12th to January 25th:
+Box2d integrated (my basic physics replaced with Box2D - player can jump around + collision detection is improved)
+With no collision bugs, and should be at least one functional and interactive world/level for the player to move around in.
+
+January 26th to February 8th:
+Fix any bugs with Box2D and work on creating a moving/scrolling camera system. Camera should be able to follow the player as
+he/she moves left and right (but not as he/she jumps... yet)
+
+Still left:
 Player can interact with the content on each level, and a rough draft of the content is mostly complete on each level. Keep working on title screen. Fix any prior bugs.
 Bonus: Start working on motion of content, transitions, or other aesthetic elements.
 Title screen complete, able to restart whole game or individual levels. Settings button, changes settings. Mostly complete motion of content, transitions, and other aesthetic elements.
